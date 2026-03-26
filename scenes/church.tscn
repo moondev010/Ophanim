@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://duv7is3y761nw"]
+
+[ext_resource type="TileSet" uid="uid://7nvu6vnf2v7k" path="res://tilemaps/church.tres" id="1_ua547"]
+[ext_resource type="PackedScene" uid="uid://bcm50ulhpyhjh" path="res://scenes/eloy.tscn" id="2_20jv8"]
+
+[node name="Node2D" type="Node2D" unique_id=1594440966]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=35522159]
+tile_set = ExtResource("1_ua547")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=109496931]
+tile_set = ExtResource("1_ua547")
+
+[node name="Eloy" parent="." unique_id=301582509 instance=ExtResource("2_20jv8")]
+position = Vector2(462, -51)
