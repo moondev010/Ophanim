@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" uid="uid://cr6s10he1mf1j" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bd3ua2ms3ydir" path="res://assets/user_interface/backgound.png" id="1_l6cm7"]
+[ext_resource type="FontFile" uid="uid://ckkai6wbujkak" path="res://assets/fonts/Montserrat-SemiBold.ttf" id="3_bqqt6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vue75"]
-font_size = 48
+font = ExtResource("3_bqqt6")
+font_size = 98
+outline_color = Color(0.16716352, 0.3574721, 0.59745204, 1)
+stacked_shadow_count = 1
+stacked_shadow_0/offset = Vector2(3, 3)
+stacked_shadow_0/color = Color(0.16225266, 0.44272104, 0.6885184, 1)
+stacked_shadow_0/outline_size = 4
 
 [node name="MainMenu" type="Control" unique_id=515232640]
 layout_mode = 3
@@ -23,8 +30,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_l6cm7")
-expand_mode = 3
-stretch_mode = 4
+expand_mode = 2
+stretch_mode = 6
 
 [node name="Button" type="Button" parent="." unique_id=977678923]
 layout_mode = 1
@@ -33,28 +40,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
+offset_left = -223.5
 offset_top = -33.0
-offset_right = 105.935486
-offset_bottom = 33.5
+offset_right = 223.5
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Start Game"
+text = "Pass the mirror"
 
 [node name="Label" type="Label" parent="." unique_id=602527205]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.32700002
+anchor_top = 0.35493827
 anchor_right = 0.5
-anchor_bottom = 0.34
-offset_left = -113.0
-offset_top = -30.896011
-offset_right = 103.0
-offset_bottom = 27.679993
+anchor_bottom = 0.35493827
+offset_left = -255.0
+offset_top = -60.0
+offset_right = 255.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Ophanim"
+text = "OPHANIM"
 label_settings = SubResource("LabelSettings_vue75")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
