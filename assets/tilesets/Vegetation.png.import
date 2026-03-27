@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdkrs83c48007"
-path="res://.godot/imported/Scenario-Tileset.png-b55cbea1e191b28c0533949a69274fd2.ctex"
+uid="uid://bim34lqxpcmaf"
+path="res://.godot/imported/Vegetation.png-ee9f588be2d8bd5d7bac8a19d25ebea3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/Scenario-Tileset.png"
-dest_files=["res://.godot/imported/Scenario-Tileset.png-b55cbea1e191b28c0533949a69274fd2.ctex"]
+source_file="res://assets/tilesets/Vegetation.png"
+dest_files=["res://.godot/imported/Vegetation.png-ee9f588be2d8bd5d7bac8a19d25ebea3.ctex"]
 
 [params]
 
