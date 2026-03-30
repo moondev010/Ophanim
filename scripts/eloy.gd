@@ -1,52 +1,53 @@
-extends CharacterBody2D
+extends Node2D
 
-@export var story_script: Node
+@onready var eloy_body = $EloyBody
+@onready var eloy_sprites = $EloyBody/AnimatedSprite2D
 
 @export var speed = 70
 var input_direction = Vector2(0, 0)
 
 func get_input():
 	input_direction = Input.get_vector("left", "right", "up","down")
-	velocity = input_direction * speed
+	eloy_body.velocity = input_direction * speed
 
 	
 func change_animation():	
 	if Input.is_action_just_pressed("ctrl"):
-		$AnimatedSprite2D.play("pushP")
-		$AnimatedSprite2D.flip_h = false
+		eloy_sprites.play("pushP")
+		eloy_sprites.flip_h = false
 	elif Input.is_action_pressed("ctrl"):
-		$AnimatedSprite2D.play("pushingS")
-		$AnimatedSprite2D.flip_h = false
+		eloy_sprites.play("pushingS")
+		eloy_sprites.flip_h = false
 	elif Input.is_action_just_pressed("shift"):
-		$AnimatedSprite2D.play("crouch")
+		eloy_sprites.play("crouch")
 	elif Input.is_action_pressed("shift"):
-		$AnimatedSprite2D.play("crouchShaking")
+		eloy_sprites.play("crouchShaking")
 	elif input_direction.x < 0 and input_direction.y < 0:
-		$AnimatedSprite2D.play("walkN")
-		$AnimatedSprite2D.flip_h = false
+		eloy_sprites.play("walkN")
+		eloy_sprites.flip_h = false
 	elif input_direction.x > 0 and input_direction.y < 0:
-		$AnimatedSprite2D.play("walkN")
-		$AnimatedSprite2D.flip_h = true
+		eloy_sprites.play("walkN")
+		eloy_sprites.flip_h = true
 	elif input_direction.x < 0 and input_direction.y > 0:
-		$AnimatedSprite2D.play("walkSW")
-		$AnimatedSprite2D.flip_h = false
+		eloy_sprites.play("walkSW")
+		eloy_sprites.flip_h = false
 	elif input_direction.x > 0 and input_direction.y > 0:
-		$AnimatedSprite2D.play("walkSW")
-		$AnimatedSprite2D.flip_h = true
+		eloy_sprites.play("walkSW")
+		eloy_sprites.flip_h = true
 	elif input_direction.x < 0:
-		$AnimatedSprite2D.play("walkW")
-		$AnimatedSprite2D.flip_h = false
+		eloy_sprites.play("walkW")
+		eloy_sprites.flip_h = false
 	elif input_direction.x > 0:
-		$AnimatedSprite2D.play("walkW")
-		$AnimatedSprite2D.flip_h = true
+		eloy_sprites.play("walkW")
+		eloy_sprites.flip_h = true
 	elif input_direction.y > 0:
-		$AnimatedSprite2D.play("walkS")
+		eloy_sprites.play("walkS")
 	elif input_direction.y < 0:
-		$AnimatedSprite2D.play("walkN")
+		eloy_sprites.play("walkN")
 	else:
-		$AnimatedSprite2D.play("idle")
+		eloy_sprites.play("idle")
 
 func _physics_process(delta):
 	get_input()
 	change_animation()
-	move_and_slide()	
+	eloy_body.move_and_slide()	

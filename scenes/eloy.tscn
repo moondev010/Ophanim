@@ -717,22 +717,22 @@ radius = 11.5
 height = 36.0
 
 [node name="Eloy" type="Node2D" unique_id=301582509]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1967683524]
 script = ExtResource("1_26884")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2105773390]
+[node name="EloyBody" type="CharacterBody2D" parent="." unique_id=1967683524]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EloyBody" unique_id=2105773390]
 position = Vector2(-2.3841858e-07, 0)
 scale = Vector2(0.6933594, 0.6933594)
 sprite_frames = SubResource("SpriteFrames_xin0k")
 animation = &"pushP"
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=397271288]
+[node name="Camera2D" type="Camera2D" parent="EloyBody" unique_id=397271288]
 position = Vector2(-2.0000038, 1.9999962)
 scale = Vector2(119.99045, -76.71059)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=668174274]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EloyBody" unique_id=668174274]
 position = Vector2(-1, 3)
 shape = SubResource("CapsuleShape2D_i4yex")
