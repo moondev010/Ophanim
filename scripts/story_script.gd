@@ -166,7 +166,8 @@ var events: Dictionary = {
 			},
 			{
 				"character": "Ducky",
-				"content": "You?"
+				"content": "You?",
+				"animation": "DuckStageTwo"
 			},
 		]	
 	},
@@ -184,19 +185,42 @@ var events: Dictionary = {
 
 ##
 var _default_event_name: String = "beginning"
-var _current: Dictionary
+var _current_event_name: String
+var _current_event: Dictionary
+
+var _events_keys: Array = events.keys()
+var _events_length = self._events_keys.size()
+
+var _event_current_position: int
 ##
-signal event_changed(name: String, info: Dictionary)
+signal event_changed(event_name: String, info: Dictionary)
 
 
 func _ready() -> void:
 	set_event(self._default_event_name)
 
 
-func get_current():
-	return self._current
+func _get_event_position(event_name): 
+	return self._events_keys.find(event_name)
 
-func set_event(name: String) -> void:
-	self._current = events[name]
-	
-	event_changed.emit(name, get_current())
+func get_current():
+	return self._current_event
+
+
+func set_event(event_name: String) -> void:
+	if event_name in self._events_keys:
+		self._current_event = self.events[event_name]
+		
+		self._event_current_position = _get_event_position(event_name)
+
+		event_changed.emit(name, get_current())
+	else:
+		print("The event does not exist")
+
+
+func set_next_event():
+	if self._current_event_name:
+		self._event_current_position = self._get_event_position(self._current_event_name)
+		
+		if self._event_current_position > -1 and self._event_current_position < self._events_length:
+			set_event(self.events[self._event_current_position + 1])

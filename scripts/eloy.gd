@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var story_script: Node
+
 @onready var eloy_body = $EloyBody
 @onready var eloy_sprites = $EloyBody/AnimatedSprite2D
 

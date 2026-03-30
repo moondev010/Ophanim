@@ -1073,8 +1073,9 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=900554366]
 sprite_frames = SubResource("SpriteFrames_1enq5")
-animation = &"IdleOff"
-frame_progress = 0.03709988
+animation = &"DuckyStageTwo"
+frame = 8
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1406579532]
 shape = SubResource("RectangleShape2D_7rtij")
