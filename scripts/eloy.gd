@@ -1,4 +1,7 @@
 extends CharacterBody2D
+
+@export var story_script: Node
+
 @export var speed = 70
 var input_direction = Vector2(0, 0)
 

@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://bdvi06xsvd444"]
+
+[ext_resource type="Script" uid="uid://f4l0dhllnnlm" path="res://scripts/dialog_box.gd" id="1_df88m"]
+[ext_resource type="FontFile" uid="uid://h1674l3riu8u" path="res://assets/fonts/PixelifySans-Bold.ttf" id="1_xvd2c"]
+[ext_resource type="FontFile" uid="uid://ka2qqiiv782r" path="res://assets/fonts/PixelifySans-Regular.ttf" id="2_tihiy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1dcv"]
+bg_color = Color(0.03529412, 0.039215688, 0.078431375, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.65882355, 0.70980394, 0.69803923, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tihiy"]
+font = ExtResource("1_xvd2c")
+font_size = 32
+font_color = Color(0.65882355, 0.70980394, 0.69803923, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_df88m"]
+font = ExtResource("2_tihiy")
+font_size = 28
+font_color = Color(0.92156863, 0.92941177, 0.9137255, 1)
+
+[node name="DialogBox" type="CanvasLayer" unique_id=714941455]
+script = ExtResource("1_df88m")
+
+[node name="MarginBox" type="MarginContainer" parent="." unique_id=1175069335]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -212.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="MarginBox" unique_id=1938084575]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k1dcv")
+
+[node name="MarginContent" type="MarginContainer" parent="MarginBox" unique_id=2016812575]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 45
+
+[node name="MarginVBox" type="VBoxContainer" parent="MarginBox/MarginContent" unique_id=444146645]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="Character" type="Label" parent="MarginBox/MarginContent/MarginVBox" unique_id=535595317]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_tihiy")
+
+[node name="Content" type="Label" parent="MarginBox/MarginContent/MarginVBox" unique_id=1929581552]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_df88m")
+autowrap_mode = 3
+
+[node name="CharacterTimer" type="Timer" parent="." unique_id=1031482331]
+process_callback = 0
+wait_time = 0.1
+
+[node name="ContentTimer" type="Timer" parent="." unique_id=714691401]
+process_callback = 0
+wait_time = 0.1
+
+[connection signal="timeout" from="CharacterTimer" to="." method="_on_character_timer_timeout"]
+[connection signal="timeout" from="ContentTimer" to="." method="_on_content_timer_timeout"]
